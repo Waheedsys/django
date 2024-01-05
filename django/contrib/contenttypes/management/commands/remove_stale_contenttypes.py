@@ -81,9 +81,11 @@ class Command(BaseCommand):
                         "The content types and dependent objects that would be deleted "
                         "are:\n\n"
                         f"{content_type_display}\n\n"
-                        "This list doesn't include any cascade deletions to data "
-                        "outside of Django's\n"
-                        "models (uncommon).\n\n"
+                        # "This list doesn't include any cascade deletions to data "
+                        # "outside of Django's\n"
+                        # "models (uncommon).\n\n"
+                        "The list above does not include deletions that may be caused by manually added database constraints or triggers."
+                       
                         "Are you sure you want to delete these content types?\n"
                         "If you're unsure, answer 'no'."
                     )
