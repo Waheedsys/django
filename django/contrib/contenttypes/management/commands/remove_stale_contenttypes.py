@@ -81,8 +81,8 @@ class Command(BaseCommand):
                         "The content types and dependent objects that would be deleted "
                         "are:\n\n"
                         f"{content_type_display}\n\n"
-                        "The list excludes deletions caused by manually"
-                        "added database constraints or triggers.\n"
+                        "The list may not include all cascade deletions" 
+                        "from external database relationships\n"
                         "Are you sure you want to delete these content types?\n"
                         "If you're unsure, answer 'no'."
                     )
