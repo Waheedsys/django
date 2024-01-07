@@ -84,8 +84,8 @@ class Command(BaseCommand):
                         # "This list doesn't include any cascade deletions to data "
                         # "outside of Django's\n"
                         # "models (uncommon).\n\n"
-                        "The list above does not include deletions that may be caused by manually added database constraints or triggers."
-                       
+                        "The list excludes deletions caused by manually"
+                        "added database constraints or triggers.\n"
                         "Are you sure you want to delete these content types?\n"
                         "If you're unsure, answer 'no'."
                     )
