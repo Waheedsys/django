@@ -82,7 +82,7 @@ class Command(BaseCommand):
                         "are:\n\n"
                         f"{content_type_display}\n\n"
                         "The list may not include all cascade deletions"
-                        "from external database relationships\n"
+                        "from data outside of Django models\n"
                         "Are you sure you want to delete these content types?\n"
                         "If you're unsure, answer 'no'."
                     )
