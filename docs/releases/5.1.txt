@@ -53,7 +53,14 @@ Minor features
 :mod:`django.contrib.gis`
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* ...
+* :class:`~django.contrib.gis.db.models.functions.BoundingCircle` is now
+  supported on SpatiaLite 5.1+.
+
+* :class:`~django.contrib.gis.db.models.Collect` is now supported on MySQL
+  8.0.24+.
+
+* :class:`~django.contrib.gis.geoip2.GeoIP2` now allows querying using
+  :class:`ipaddress.IPv4Address` or :class:`ipaddress.IPv6Address` objects.
 
 :mod:`django.contrib.messages`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -63,7 +70,8 @@ Minor features
 :mod:`django.contrib.postgres`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* ...
+* :class:`~django.contrib.postgres.indexes.BTreeIndex` now supports the
+  ``deduplicate_items`` parameter.
 
 :mod:`django.contrib.redirects`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -184,6 +192,14 @@ Models
 * :meth:`.QuerySet.order_by` now supports ordering by annotation transforms
   such as ``JSONObject`` keys and ``ArrayAgg`` indices.
 
+* :class:`F() <django.db.models.F>` and :class:`OuterRef()
+  <django.db.models.OuterRef>` expressions that output
+  :class:`~django.db.models.CharField`, :class:`~django.db.models.EmailField`,
+  :class:`~django.db.models.SlugField`, :class:`~django.db.models.URLField`,
+  :class:`~django.db.models.TextField`, or
+  :class:`~django.contrib.postgres.fields.ArrayField` can now be :ref:`sliced
+  <slicing-using-f>`.
+
 Requests and Responses
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -240,6 +256,9 @@ Tests
 
 * The new :meth:`.SimpleTestCase.assertNotInHTML` assertion allows testing that
   an HTML fragment is not contained in the given HTML haystack.
+
+* In order to enforce test isolation, database connections inside threads are
+  no longer allowed in :class:`~django.test.SimpleTestCase`.
 
 URLs
 ~~~~
@@ -322,6 +341,9 @@ Miscellaneous
 
 * The ``django.contrib.gis.geoip2.GeoIP2.open()`` method is deprecated. Use the
   :class:`~django.contrib.gis.geoip2.GeoIP2` constructor instead.
+
+* Passing positional arguments to :meth:`.Model.save` and :meth:`.Model.asave`
+  is deprecated in favor of keyword-only arguments.
 
 Features removed in 5.1
 =======================
